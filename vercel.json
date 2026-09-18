@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/shop-piano",
+      "destination": "/shop-piano.html",
+      "permanent": true
+    },
+    {
+      "source": "/exploring-accordion-lessons-and-buying-options-in-singapore",
+      "destination": "/exploring-accordion-lessons-and-buying-options-in-singapore.html",
+      "permanent": true
+    },
+    {
+      "source": "/discovering-the-wrold-of-violins",
+      "destination": "/discovering-the-wrold-of-violins.html",
+      "permanent": true
+    }
+  ]
+}

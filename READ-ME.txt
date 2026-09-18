@@ -1,0 +1,59 @@
+accordion.sg — website (19 Sep 2026)
+
+HOW TO USE IT
+  Locally : double-click index.html. Everything works offline except the
+            YouTube players, the web fonts and the score PDF previews,
+            which need a connection.
+  On the web: upload EVERYTHING in this folder to your web root. Done.
+            No build step, no framework, nothing to install.
+
+LANGUAGES
+  Every page contains ALL SEVEN languages in the one HTML file —
+  English, Русский, 中文, 日本語, 한국어, Bahasa Melayu, தமிழ்.
+  The menu in the header switches them instantly, with no page reload
+  (the Score Library reloads once, because it builds its index on load).
+  The choice is remembered, so it carries across pages.
+  A direct link can force a language:  about.html?lang=ja
+  Those ?lang= URLs are what the hreflang tags and the sitemap point at.
+
+WHAT IS HERE  (57 html files, all in the root)
+  index.html  about.html  trio.html  shop-piano.html  lessons.html
+  library.html  blog.html
+  <article-slug>.html    the 50 journal articles, one file each
+  style.css  script.js   the site
+  scores.css scores.js scores-data.js
+                         the Score Library on library.html — 743 scores,
+                         229 composers, search + facets, in all 7 languages
+  images/                every image
+  images/products/       DROP THE 8 SHOP PHOTOS HERE (see its README)
+  accordion_pdfs/        DROP THE SCORE PDFs HERE (see its README)
+  sitemap.xml  robots.txt  llms.txt
+  .htaccess _redirects vercel.json
+                         optional host config: redirects the old indexed URLs
+                         (/about/, /shop-piano/, /exploring-.../, /discovering-...)
+                         to the new .html files, and lets /about work as well
+                         as /about.html. Harmless if your host ignores them.
+
+EDITING
+  Page text     : open the .html file. Each language sits in its own
+                  <div class="lx" data-l="ru"> … </div> block. Edit the one
+                  you want; the others are untouched.
+  Menus, buttons, labels: the window.ACCSG_I18N block near the top of each
+                  file (generated from the same source for every page).
+  Colours/layout: style.css
+  Prices, Stripe links, WhatsApp number, the accordion catalogue:
+                  the top of script.js — one config block.
+  Score list    : scores-data.js (743 records).
+
+TO FILL IN
+  1. script.js -> SITE.whatsapp   is still a placeholder number.
+  2. script.js -> STRIPE_LINKS    all null; while null, a Buy button falls back
+                                  to a WhatsApp reservation.
+  3. images/products/             the 8 shop photos.
+  4. accordion_pdfs/              the 743 score PDFs.
+  Google Analytics G-MDTZJXNQ59 is already on every page.
+
+NOTE ON THE ARTICLES
+  The 50 journal articles are written in English. Their page furniture
+  (menus, breadcrumbs, labels, buttons) translates with the language menu;
+  the article prose itself does not yet. Translations drop straight in.
