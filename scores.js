@@ -91,30 +91,50 @@ function renderThumb(c,file){
   }).then(function(){ active--; pump(); });
 }
 
-/* ---------- language ---------- */
+/* ---------- language ----------
+   accordion.sg: the widget's own language menu and stat block were removed —
+   the site header drives the language and the site hero shows the stats.
+   Everything below is guarded so the widget works with or without them. */
 function buildLangMenu(){
-  var m=$('#accsg-langMenu'); m.innerHTML='';
+  var m=$('#accsg-langMenu'); if(!m) return;
+  m.innerHTML='';
   LANGS.forEach(function(l){
     var b=el('button'); b.textContent=LIB.i18n[l].lang_name; if(l===state.lang)b.className='on';
-    b.onclick=function(){setLang(l);$('#accsg-langWrap').classList.remove('open');};
+    b.onclick=function(){setLang(l);var w=$('#accsg-langWrap'); if(w) w.classList.remove('open');};
     m.appendChild(b);
   });
 }
-$('#accsg-langBtn').onclick=function(e){e.stopPropagation();var w=$('#accsg-langWrap');var o=w.classList.toggle('open');$('#accsg-langBtn').setAttribute('aria-expanded',o);};
-document.addEventListener('click',function(){$('#accsg-langWrap').classList.remove('open');if(openFacet!==null){openFacet=null;buildFacets();}});
-$('#accsg-langMenu').onclick=function(e){e.stopPropagation();};
+(function(){
+  var lb=$('#accsg-langBtn');
+  if(lb) lb.onclick=function(e){e.stopPropagation();var w=$('#accsg-langWrap');var o=w.classList.toggle('open');lb.setAttribute('aria-expanded',o);};
+  var lm=$('#accsg-langMenu');
+  if(lm) lm.onclick=function(e){e.stopPropagation();};
+})();
+document.addEventListener('click',function(){
+  var w=$('#accsg-langWrap'); if(w) w.classList.remove('open');
+  if(openFacet!==null){openFacet=null;buildFacets();}
+});
 function setLang(l){
-  state.lang=l; $('#accsg-langCur').textContent=LIB.i18n[l].lang_name;
+  if(LANGS.indexOf(l)<0) l='en';
+  state.lang=l;
+  var cur=$('#accsg-langCur'); if(cur) cur.textContent=LIB.i18n[l].lang_name;
   root.querySelectorAll('[data-i]').forEach(function(n){n.textContent=T(n.getAttribute('data-i'));});
-  $('#accsg-q').placeholder=T('search_ph');
-  $('#accsg-sortLab').textContent=state.sort===1?T('az'):T('za');
+  var q=$('#accsg-q'); if(q) q.placeholder=T('search_ph');
+  var sl=$('#accsg-sortLab'); if(sl) sl.textContent=state.sort===1?T('az'):T('za');
   buildLangMenu(); buildFacets(); renderChips(); renderPills(); renderNote(); render();
 }
+/* follow the site-wide language switch */
+document.addEventListener('accsg:lang',function(e){
+  var l=e&&e.detail&&e.detail.lang; if(l&&l!==state.lang) setLang(l);
+});
 
 /* ---------- stats ---------- */
-$('#accsg-sTotal').textContent=LIB.meta.total;
-$('#accsg-sComp').textContent=LIB.meta.composers;
-$('#accsg-sGen').textContent=LIB.meta.genres;
+(function(){
+  var a=$('#accsg-sTotal'), b2=$('#accsg-sComp'), c=$('#accsg-sGen');
+  if(a) a.textContent=LIB.meta.total;
+  if(b2) b2.textContent=LIB.meta.composers;
+  if(c) c.textContent=LIB.meta.genres;
+})();
 
 /* ---------- controls ---------- */
 function applyChange(){buildFacets();renderChips();renderPills();renderNote();render();}
@@ -373,26 +393,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(modal.cl
    triggers a horizontal scrollbar. Recomputed on resize. Remove this block
    if you'd rather the widget stay inside its Leadpages column.            */
 function fullBleed(){
-  var band=$('.band'); if(!band) return;
-  var n=root.parentElement;
-  while(n && n!==document.body && n!==document.documentElement){
-    var cs=getComputedStyle(n);
-    if(cs.maxWidth!=='none') n.style.maxWidth='none';
-    if(cs.overflowX==='hidden'||cs.overflowX==='clip'||cs.overflowX==='auto'||cs.overflowX==='scroll') n.style.overflowX='visible';
-    /* remove the host section's vertical padding/margin so the dark band sits flush */
-    n.style.paddingTop='0'; n.style.paddingBottom='0'; n.style.marginTop='0'; n.style.marginBottom='0';
-    n=n.parentElement;
-  }
-  band.style.marginLeft='0'; band.style.width='auto';
-  var rect=root.getBoundingClientRect();
-  var vw=document.documentElement.clientWidth;
-  band.style.width=vw+'px';
-  band.style.marginLeft=(-rect.left)+'px';
+  /* accordion.sg: the library sits inside the site's own layout, so the
+     Leadpages full-bleed/parent-stripping behaviour is not wanted. */
 }
 window.addEventListener('resize',fullBleed);
 
 /* ---------- init ---------- */
-buildLangMenu(); setLang('en');
+buildLangMenu(); setLang(window.ACCSG_LANG||'en');
 fullBleed(); setTimeout(fullBleed,250); setTimeout(fullBleed,1200);
 
 })();

@@ -14,29 +14,51 @@ const SITE = {
    Leave a value as null and the card falls back to a WhatsApp reservation
    enquiry instead of pretending a checkout exists. */
 const STRIPE_LINKS = {
-  "as-26-60-2a":            null,
-  "as-30-60-2a":            null,
-  "as-34-60-3a":            null,
-  "as-34-72-3b":            null,
-  "hohner-bravo-26-48":     null,
-  "hohner-bravo-26-60":     null,
-  "hohner-mycolor-34-72":   null,
-  "hohner-bravo-34-80":     null,
-  "hohner-bravo-34-96":     null,
-  "hohner-bravo-41-120":    null
+  "as-26-48-60-2b-48":         null,
+  "as-26-48-60-2b-60":         null,
+  "as-26-60-2a":               null,
+  "hohner-bravo-26-48":        null,
+  "hohner-bravo-26-60":        null,
+  "as-34-60-2a":               null,
+  "as-30-60-2a":               null,
+  "as-34-60-3a":               null,
+  "as-34-72-3b":               null,
+  "hohner-bravo-34-72":        null,
+  "as-37-80-3a":               null,
+  "hohner-mycolor-34-72":      null,
+  "hohner-bravo-34-80":        null,
+  "hohner-bravo-34-96":        null,
+  "hohner-bravo-41-120":       null
 };
 
 /* Catalogue. `variants` drive the on-card toggles; each variant carries its own
    price and its own Stripe key, so the toggle always buys the right thing. */
 const CATALOGUE = [
+  { id:"as-26-48-60-2b", img:"as-26-48-60-2b.jpg", brand:"Accordions Singapore", name:"26 / 48–60 / 2 / B", tier:"student",
+    origin:"China", keys:"26 treble keys", bass:"48 or 60 bass buttons", reeds:"2 treble reeds · 3 registers",
+    blurb:"The lightest instrument we sell. Choose the bass side below — it changes the weight, which matters more than anything else for a small player.",
+    variants:[{label:"48 bass", price:1556, key:"as-26-48-60-2b-48"},
+              {label:"60 bass", price:1556, key:"as-26-48-60-2b-60"}] },
+
   { id:"as-26-60-2a", img:"as-26-60-2a.jpg", brand:"Accordions Singapore", name:"26 / 60 / 2 / A", tier:"student",
     origin:"China", keys:"26 treble keys", bass:"60 bass buttons", reeds:"2 treble reeds · 3 registers",
-    blurb:"The lightest way in. Small enough for a seven-year-old to hold properly, honest enough to take a Grade 1–3 exam.",
+    blurb:"Small enough for a seven-year-old to hold properly, honest enough to take a Grade 1–3 exam on.",
     variants:[{label:"60 bass", price:1617, key:"as-26-60-2a"}] },
+
+  { id:"hohner-bravo-26", img:"hohner-bravo-26.jpg", brand:"Hohner", name:"Bravo 26", tier:"student",
+    origin:"China", keys:"26 treble keys", bass:"48 or 60 bass buttons", reeds:"2 treble reeds · 3 registers",
+    blurb:"Hohner's entry Bravo. Tell us the player's age and height and we'll tell you which bass side to take.",
+    variants:[{label:"48 bass", price:2244, key:"hohner-bravo-26-48"},
+              {label:"60 bass", price:2244, key:"hohner-bravo-26-60"}] },
+
+  { id:"as-34-60-2a", img:"as-34-60-2a.jpg", brand:"Accordions Singapore", name:"34 / 60 / 2 / A", tier:"student",
+    origin:"China", keys:"34 treble keys", bass:"60 bass buttons", reeds:"2 treble reeds · 3 registers",
+    blurb:"Full-length keys on a two-reed body — more range than a 26 without the weight of a three-reed instrument.",
+    variants:[{label:"60 bass", price:2489, key:"as-34-60-2a"}] },
 
   { id:"as-30-60-2a", img:"as-30-60-2a.jpg", brand:"Accordions Singapore", name:"30 / 60 / 2 / A", tier:"student",
     origin:"Korea", keys:"30 treble keys", bass:"60 bass buttons", reeds:"2 treble reeds · 3 registers",
-    blurb:"Korean-built, noticeably quieter action and a rounder tone. Our usual recommendation for an adult beginner.",
+    blurb:"Korean-built: noticeably quieter action and a rounder tone. Our usual recommendation for an adult beginner.",
     variants:[{label:"60 bass", price:2625, key:"as-30-60-2a"}] },
 
   { id:"as-34-60-3a", img:"as-34-60-3a.jpg", brand:"Accordions Singapore", name:"34 / 60 / 3 / A", tier:"intermediate",
@@ -49,20 +71,24 @@ const CATALOGUE = [
     blurb:"Twelve extra bass buttons open up the keys most folk and tango arrangements actually sit in.",
     variants:[{label:"72 bass", price:2249, key:"as-34-72-3b"}] },
 
-  { id:"hohner-bravo-26", img:"hohner-bravo-26.jpg", brand:"Hohner", name:"Bravo 26", tier:"student",
-    origin:"China", keys:"26 treble keys", bass:"48 or 60 bass buttons", reeds:"2 treble reeds · 3 registers",
-    blurb:"Hohner's entry Bravo. Choose the bass side below — it changes the weight, so tell us the player's age and we'll advise.",
-    variants:[{label:"48 bass", price:2244, key:"hohner-bravo-26-48"},
-              {label:"60 bass", price:2244, key:"hohner-bravo-26-60"}] },
+  { id:"hohner-bravo-34-72", img:"hohner-bravo-34-72.jpg", brand:"Hohner", name:"Bravo 34 / 72", tier:"intermediate",
+    origin:"China", keys:"34 treble keys", bass:"72 bass buttons", reeds:"3 treble reeds · 5 registers · 2 bass registers",
+    blurb:"The mid Bravo. Hohner reeds and a proper register set at a price that still makes sense for an exam student.",
+    variants:[{label:"72 bass", price:2822, key:"hohner-bravo-34-72"}] },
+
+  { id:"as-37-80-3a", img:"as-37-80-3a.jpg", brand:"Accordions Singapore", name:"37 / 80 / 3 / A", tier:"intermediate",
+    origin:"Korea", keys:"37 treble keys", bass:"80 bass buttons", reeds:"3 treble reeds · 7 registers · 3 bass registers",
+    blurb:"Korean-built, seven registers, 80 basses. Close to a full-size instrument but meaningfully lighter to stand with.",
+    variants:[{label:"80 bass", price:3655, key:"as-37-80-3a"}] },
 
   { id:"hohner-mycolor-34-72", img:"hohner-mycolor-34-72.jpg", brand:"Hohner", name:"MyColor 34 / 72", tier:"intermediate",
     origin:"China", keys:"34 treble keys", bass:"72 bass buttons", reeds:"3 treble reeds · 5 registers · 2 bass registers",
     blurb:"The one students actually want to carry to class. Same Hohner voicing, finished in colour.",
     variants:[{label:"72 bass", price:3941, key:"hohner-mycolor-34-72"}] },
 
-  { id:"hohner-bravo-34", img:"hohner-bravo-34.jpg", brand:"Hohner", name:"Bravo 34", tier:"advanced",
+  { id:"hohner-bravo-34-80", img:"hohner-bravo-34-80.jpg", brand:"Hohner", name:"Bravo 34 / 80–96", tier:"advanced",
     origin:"China", keys:"34 treble keys", bass:"80 or 96 bass buttons", reeds:"3 treble reeds · 7 registers · 3 bass registers",
-    blurb:"Seven treble registers and a proper bass register set. The step where exam repertoire stops fighting you.",
+    blurb:"Seven treble registers and a full bass register set. The step where exam repertoire stops fighting you.",
     variants:[{label:"80 bass", price:4157, key:"hohner-bravo-34-80"},
               {label:"96 bass", price:4157, key:"hohner-bravo-34-96"}] },
 

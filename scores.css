@@ -250,3 +250,51 @@
   #accsg-lib .facet-menu{min-width:0;width:min(84vw,300px)}
   #accsg-lib .filterbar .flabel{flex:1 1 100%}
 }
+
+/* ==========================================================================
+   accordion.sg skin — repaint the Score Library in the site's own language:
+   the site supplies the hero, the widget sits inside the normal page grid,
+   and every control adopts the site's button / chip / card treatment.
+   ========================================================================== */
+#accsg-lib .band{width:auto;margin-left:0;background:transparent;overflow:visible}
+#accsg-lib .band::before{display:none}
+#accsg-lib .inner{max-width:1160px;padding:0 24px}
+
+/* the controls stick under the site's own sticky header, not the viewport top */
+#accsg-lib .controls{top:var(--navh,64px);margin-top:0;padding:16px 0;
+  background:rgba(35,34,48,.94);border-top:0}
+
+/* type: the site scale, not the widget's px ladder */
+#accsg-lib{font-size:1rem;line-height:1.55}
+#accsg-lib .resbar{font-family:var(--font);font-size:.72rem;letter-spacing:.09em;color:#8B8899}
+#accsg-lib .ghead h3{font-family:var(--font);font-weight:800;letter-spacing:-.02em;font-size:1.25rem}
+#accsg-lib .card .ct{font-weight:700;letter-spacing:-.01em}
+
+/* buttons + chips: outlined, uppercase, letter-spaced, invert on hover */
+#accsg-lib .seg button,#accsg-lib .sortbtn,#accsg-lib .facet-btn,#accsg-lib .clearall{
+  letter-spacing:.07em;font-size:.72rem}
+#accsg-lib .seg button.on{background:#fff;color:#2B2A38}
+#accsg-lib .chip{border-radius:999px;letter-spacing:.04em;font-size:.72rem;padding:8px 13px}
+#accsg-lib .chip.alpha{border-radius:999px;width:34px}
+#accsg-lib .chip.on{background:#E7DEF3;color:#2B2A38;border-color:#E7DEF3}
+#accsg-lib .search input{border-radius:2px}
+#accsg-lib .search input:focus{border-color:#E7DEF3;box-shadow:0 0 0 3px rgba(231,222,243,.14)}
+
+/* cards: the site's card treatment, composer line in periwinkle */
+#accsg-lib .card{background:#343341;border:1px solid rgba(255,255,255,.08);border-radius:0}
+#accsg-lib .card:hover{background:#3D3B4A;border-color:rgba(255,255,255,.14);
+  transform:translateY(-3px);box-shadow:0 12px 30px rgba(16,15,24,.35)}
+#accsg-lib .card .cby,#accsg-lib .card .by{color:#8F84CB;font-weight:600}
+
+/* action buttons inside a card read like the site's .btn */
+#accsg-lib .card .act,#accsg-lib .card button.dl,#accsg-lib .card .pv{
+  text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+
+/* close the library with the brand's gradient rule */
+#accsg-lib .lavbar{height:6px;background:linear-gradient(90deg,#8F84CB,#E7DEF3)}
+
+@media(max-width:640px){
+  #accsg-lib .inner{padding:0 18px}
+  #accsg-lib .controls{padding:12px 0}
+  #accsg-lib .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+}

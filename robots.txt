@@ -1,15 +1,55 @@
+# accordion.sg — Accordion Singapore / A&G Academy
 User-agent: *
 Allow: /
+Disallow: /accordion_pdfs/README.txt
 
+# Search engines
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /images/
+User-agent: Bingbot
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: YandexBot
+Allow: /
+User-agent: Baiduspider
+Allow: /
+
+# Answer engines and AI assistants — this site is written to be cited.
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot
 Allow: /
+User-agent: ChatGPT-User
+Allow: /
 User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
 Allow: /
 User-agent: PerplexityBot
 Allow: /
+User-agent: Perplexity-User
+Allow: /
 User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://www.accordion.sg/sitemap.xml
+Host: https://www.accordion.sg
