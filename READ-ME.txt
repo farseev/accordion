@@ -5,9 +5,29 @@ DEPLOY
   no build step, no framework, nothing to install.
   To preview locally, double-click index.html.
 
-  Two things to do after uploading:
+  One thing to do after uploading:
     • put the score PDFs in  accordion_pdfs/   (see the README in there)
-    • set the WhatsApp number and Stripe links at the top of script.js
+
+  The WhatsApp number (+65 9122 7009) and all 14 Stripe payment links are
+  already live in script.js. Nothing else to configure.
+
+THE SHOP
+  14 accordions — 12 piano, 2 orchestra — with the real photographs, specs
+  and prices (S$1,556–S$4,677), filterable by Student / Intermediate /
+  Advanced / Orchestra.
+
+  Each card has two buttons:
+    ORDER NOW   opens that model's live Stripe checkout. The links sit on the
+                SOMIN PTE LTD account, in SGD, collecting a Singapore delivery
+                address and a phone number. Where a model has a bass-side or
+                reed-range choice, the buyer picks it on the Stripe page —
+                that is the "specified at check-in" step from the old site.
+    ASK FIRST   opens WhatsApp to +65 9122 7009 with the model, variant and
+                price already written into the message.
+
+  To change a price, change it in BOTH places: script.js (what the site shows)
+  and the Stripe dashboard (what is actually charged). The links live in the
+  STRIPE_LINKS block at the top of script.js.
 
 LANGUAGES
   Every page contains ALL SEVEN languages in the one HTML file —
@@ -20,59 +40,51 @@ FILES (57 html, all in the root)
   index.html  about.html  trio.html  shop-piano.html  lessons.html
   library.html  blog.html
   <article-slug>.html      the 50 journal articles, one file each
-  style.css  script.js     the site
+  style.css  script.js     the site (script.js holds the shop config)
   scores.css scores.js scores-data.js
                            the Score Library — 743 scores, 229 composers
   images/                  photography, icons and social cards
-  images/products/         the 12 accordion photos
+  images/products/         the 14 accordion photographs
   accordion_pdfs/          ← PUT THE SCORE PDFs HERE
   sitemap.xml  robots.txt  llms.txt  llms-full.txt  site.webmanifest
   .htaccess  _redirects  vercel.json    host config (see below)
 
-SEO / SEM / GEO — WHAT IS ALREADY IN PLACE
+SEO / SEM / GEO — ALREADY IN PLACE
   Per page : unique <title> and meta description in all 7 languages,
              canonical, robots (max-image-preview:large, max-snippet:-1),
              7 hreflang + x-default, author/publisher, geo.region SG + ICBM.
   Social   : Open Graph (title, description, type, url, locale +6 alternates,
-             1200×630 image with width/height/alt) and Twitter summary_large_image,
-             with a purpose-built branded preview card per page —
-             images/og-home.jpg, og-about, og-trio, og-shop, og-lessons,
-             og-library, og-blog.
+             1200×630 image with width/height/alt) and Twitter
+             summary_large_image, with a branded preview card per page.
   Icons    : favicon.ico (16/32/48), favicon-16/32, SVG icon, apple-touch-icon
              180, icon-192, icon-512, site.webmanifest (installable, themed).
   Schema   : Organization/MusicGroup/MusicSchool/LocalBusiness with @id, sameAs,
              makesOffer and priceRange; WebSite with SearchAction; ItemList of
-             all 12 accordions as Products with SGD offers; DataCatalog for the
-             score library; Article + FAQPage + BreadcrumbList on all 50 articles;
-             Blog on the journal index.
+             all 14 accordions as Products with SGD offers; DataCatalog for the
+             score library; Article + FAQPage + BreadcrumbList on all 50
+             articles; Blog on the journal index.
   Crawling : sitemap.xml — 57 URLs, each with 7 hreflang alternates, x-default,
              an image entry, changefreq and priority. robots.txt allows every
-             major search crawler and every major AI/answer crawler by name
-             (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web,
-             anthropic-ai, PerplexityBot, Perplexity-User, Google-Extended,
-             Applebot-Extended, Amazonbot, Bytespider, CCBot, meta-externalagent,
-             cohere-ai) and declares the sitemap and host.
-  GEO/AEO  : llms.txt — the site summarised for answer engines: who the people
-             are, the key facts, the instrument list, and all 50 articles each
-             with its own quotable one-paragraph answer, plus a citation line.
-             Every article page also carries a "short answer" block and FAQs
-             marked up as FAQPage, which is what gets pulled into AI answers.
+             major search crawler and every major AI/answer crawler by name.
+  GEO/AEO  : llms.txt — the site summarised for answer engines, with all 50
+             articles each carrying its own quotable one-paragraph answer.
   Legacy   : .htaccess / _redirects / vercel.json 301 the already-indexed URLs
              (/about/, /shop-piano/, /exploring-.../, /discovering-.../) to the
              new .html files, and let /about work as well as /about.html.
 
 AFTER YOU GO LIVE
-  1. Search Console + Bing Webmaster Tools: verify the domain, submit
+  1. Search Console + Bing Webmaster Tools: verify, submit
      https://www.accordion.sg/sitemap.xml
-  2. Check the social cards at the Facebook Sharing Debugger and
-     https://cards-dev.twitter.com/validator
+  2. Check the social cards in the Facebook Sharing Debugger and the
+     Twitter/X card validator.
   3. Run the Rich Results Test on shop-piano.html and one article.
-  4. Google Business Profile: the Organization schema already carries the
-     address country, email and price range — keep them consistent.
+  4. Place one small live Stripe order yourself and refund it, to confirm the
+     checkout, the delivery address step and the confirmation message.
 
 EDITING
   Page text     : open the .html file. Each language sits in its own
                   <div class="lx" data-l="ru"> … </div> block.
   Menus/labels  : the window.ACCSG_I18N block near the top of each file.
   Colours/layout: style.css     Library skin: scores.css (bottom section)
-  Prices, Stripe links, WhatsApp number, the 12 accordions: top of script.js
+  Shop          : top of script.js — the 14 accordions, prices, Stripe links
+                  and the WhatsApp number, all in one config block.

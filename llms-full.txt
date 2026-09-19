@@ -9,7 +9,7 @@ Licence: content may be quoted and cited with attribution to accordion.sg.
 ## Key facts
 - Founded out of the Accordion Singapore community and the Singapore Symphony Orchestra.
 - 500+ performances since 1990; 100+ students taught.
-- 12 piano accordions in stock, S$1,556–S$4,677, delivered and set up in Singapore.
+- 14 accordions in stock (12 piano, 2 orchestra), S$1,556–S$4,677, delivered and set up in Singapore.
 - 743 free scores, 229 composers, 16 genres, graded Grade 1 to Virtuoso.
 - Performs Russian folk, French musette, Argentine tango and classical repertoire.
 
@@ -17,7 +17,7 @@ Licence: content may be quoted and cited with attribution to accordion.sg.
 - [accordion.sg — Accordion & Double Bass in Singapore | A&G Academy](https://www.accordion.sg/index.html): A&G Academy: accordionist Aleksandr Farseev and SSO Principal Bass Guennadi Mouzyka. Live performance, accordion and double bass lessons, instruments for sale in Singapore.
 - [A&G Academy — Aleksandr Farseev & Guennadi Mouzyka](https://www.accordion.sg/about.html): A&G Academy is accordionist Aleksandr Farseev, founder of Accordion Singapore, and Guennadi Mouzyka, Principal Bass of the Singapore Symphony Orchestra and YST Artist Faculty.
 - [Trio de Tango — Aleksandr, Guennadi & Ksenia | accordion.sg](https://www.accordion.sg/trio.html): Trio de Tango: accordion, double bass and strings playing Piazzolla, Gardel and classic tango in Singapore. Watch the Crossing Borders set and enquire on WhatsApp.
-- [Buy a Piano Accordion in Singapore | accordion.sg](https://www.accordion.sg/shop-piano.html): Eight piano accordions in stock in Singapore, S$1,617 to S$4,677. Choose your bass side on the card, see the price update, and check out by card or reserve on WhatsApp.
+- [Buy a Piano Accordion in Singapore | accordion.sg](https://www.accordion.sg/shop-piano.html): Fourteen accordions in stock in Singapore, S$1,556 to S$4,677. Choose your bass side on the card, see the price update, and check out by card or reserve on WhatsApp.
 - [Accordion & Double Bass Lessons in Singapore | A&G Academy](https://www.accordion.sg/lessons.html): Accordion and bayan lessons with Aleksandr Farseev, double bass and chamber coaching with SSO Principal Bass Guennadi Mouzyka. Beginners to conservatory auditions.
 - [Accordion Score Library — 740+ Free Scores | accordion.sg](https://www.accordion.sg/library.html): A free, graded, multilingual library of 743 accordion and bayan scores, Grade 1 to Virtuoso, searchable by composer, genre, difficulty and ensemble.
 - [Journal](https://www.accordion.sg/blog.html): 50 articles on tango, music theory, the accordion and the double bass.
@@ -40,6 +40,8 @@ Licence: content may be quoted and cited with attribution to accordion.sg.
 - Hohner MyColor 34 / 72
 - Hohner Bravo 34 / 80–96
 - Hohner Bravo 41 / 120
+- Accomate Orchestra
+- TOMBO Orchestra
 
 ## Articles
 

@@ -4,31 +4,31 @@
    ========================================================================== */
 
 const SITE = {
-  whatsapp: "6580000000",          // TODO: replace with the real A&G Academy WhatsApp number (digits only, country code first)
+  whatsapp: "6591227009",         // A&G Academy WhatsApp (+65 9122 7009)
   email: "hello@accordion.sg",
   libraryUrl: "library.html",      // swap for the real Score Library host when it goes live
   youtube: "https://www.youtube.com/@AlexFarseev"
 };
 
-/* Stripe Payment Links — one per purchasable variant.
-   Leave a value as null and the card falls back to a WhatsApp reservation
-   enquiry instead of pretending a checkout exists. */
+/* Stripe Payment Links — one per model, keyed by the model id.
+   Each link is live and collects the SG delivery address and a phone number;
+   where a model has a bass-side or reed-range choice, the buyer picks it on
+   the Stripe page (that is the "specified at check-in" step). */
 const STRIPE_LINKS = {
-  "as-26-48-60-2b-48":         null,
-  "as-26-48-60-2b-60":         null,
-  "as-26-60-2a":               null,
-  "hohner-bravo-26-48":        null,
-  "hohner-bravo-26-60":        null,
-  "as-34-60-2a":               null,
-  "as-30-60-2a":               null,
-  "as-34-60-3a":               null,
-  "as-34-72-3b":               null,
-  "hohner-bravo-34-72":        null,
-  "as-37-80-3a":               null,
-  "hohner-mycolor-34-72":      null,
-  "hohner-bravo-34-80":        null,
-  "hohner-bravo-34-96":        null,
-  "hohner-bravo-41-120":       null
+  "as-26-60-2a":           "https://buy.stripe.com/14AeVe7Os0yq4q0c049bO2i",
+  "as-26-48-60-2b":        "https://buy.stripe.com/9B68wQ9WAepg5u49RW9bO2j",
+  "as-30-60-2a":           "https://buy.stripe.com/fZu4gAd8Mdlcf4Efcg9bO2k",
+  "as-34-60-2a":           "https://buy.stripe.com/7sY4gA4Cg80S4q07JO9bO2l",
+  "hohner-bravo-26":       "https://buy.stripe.com/14A5kEfgUgxobSse8c9bO2m",
+  "as-34-60-3a":           "https://buy.stripe.com/cNi14ob0Egxo09K9RW9bO2n",
+  "as-34-72-3b":           "https://buy.stripe.com/3cI8wQc4Igxo5u4aW09bO2o",
+  "hohner-bravo-34-72":    "https://buy.stripe.com/3cI28s6Ko1Cu09K3ty9bO2p",
+  "as-37-80-3a":           "https://buy.stripe.com/5kQ28sfgUch809K3ty9bO2q",
+  "hohner-mycolor-34-72":  "https://buy.stripe.com/fZufZiecQ80ScWw2pu9bO2r",
+  "hohner-bravo-34-80":    "https://buy.stripe.com/6oU14o9WAepg6y80hm9bO2s",
+  "hohner-bravo-41-120":   "https://buy.stripe.com/7sY7sM0m0a90cWwc049bO2t",
+  "accomate-orchestra":    "https://buy.stripe.com/cNi7sMd8M94WaOo3ty9bO2u",
+  "tombo-orchestra":       "https://buy.stripe.com/9B63cwd8Mch84q07JO9bO2v"
 };
 
 /* Catalogue. `variants` drive the on-card toggles; each variant carries its own
@@ -95,8 +95,25 @@ const CATALOGUE = [
   { id:"hohner-bravo-41-120", img:"hohner-bravo-41-120.jpg", brand:"Hohner", name:"Bravo 41 / 120", tier:"advanced",
     origin:"China", keys:"41 treble keys", bass:"120 bass buttons", reeds:"3 treble reeds · 7 registers · 3 bass registers",
     blurb:"Full-size, full bass. What you buy once, for conservatory study and paid work.",
-    variants:[{label:"120 bass", price:4677, key:"hohner-bravo-41-120"}] }
+    variants:[{label:"120 bass", price:4677, key:"hohner-bravo-41-120"}] },
+
+  { id:"accomate-orchestra", img:"accomate-orchestra.jpg", brand:"Accomate", name:"Orchestra", tier:"orchestra",
+    origin:"China", keys:"32 treble keys", bass:"No bass keyboard — built for orchestra playing", reeds:"Reed range (Soprano, Alto, Tenor, Bass) specified at check-in",
+    blurb:"An orchestra accordion: treble side only, so it sits inside an ensemble rather than accompanying itself. Tell us which voice you are covering and we set the reed range to match.",
+    variants:[{label:"Soprano", price:2489, key:"accomate-orchestra-s"},
+              {label:"Alto", price:2489, key:"accomate-orchestra-a"},
+              {label:"Tenor", price:2489, key:"accomate-orchestra-t"},
+              {label:"Bass", price:2489, key:"accomate-orchestra-b"}] },
+
+  { id:"tombo-orchestra", img:"tombo-orchestra.jpg", brand:"TOMBO", name:"Orchestra", tier:"orchestra",
+    origin:"China", keys:"32 treble keys", bass:"No bass keyboard — built for orchestra playing", reeds:"Reed range (Soprano, Alto, Tenor, Bass) specified at check-in",
+    blurb:"The step up in the orchestra range. Same treble-only layout, a firmer action and a tone that carries better across a full section.",
+    variants:[{label:"Soprano", price:3174, key:"tombo-orchestra-s"},
+              {label:"Alto", price:3174, key:"tombo-orchestra-a"},
+              {label:"Tenor", price:3174, key:"tombo-orchestra-t"},
+              {label:"Bass", price:3174, key:"tombo-orchestra-b"}] }
 ];
+
 
 /* ------------------------------------------------------------------ helpers */
 const IMG_BASE = "images/products/";
@@ -156,24 +173,30 @@ function syncCard(card, p){
   const v = p.variants[i];
   card.querySelector(".pval").textContent = sgd(v.price);
 
-  const link = STRIPE_LINKS[v.key];
-  const buy  = card.querySelector(".buy");
-  const note = card.querySelector(".note");
-  const label = `${p.brand} ${p.name} (${v.label})`;
+  const link  = STRIPE_LINKS[p.id];
+  const buy   = card.querySelector(".buy");
+  const ask   = card.querySelector(".ask");
+  const note  = card.querySelector(".note");
+  const label = `${p.brand} ${p.name}${p.variants.length > 1 ? ` (${v.label})` : ""}`;
 
+  /* ORDER — opens the Stripe checkout session for this model */
   if (link){
     buy.href = link; buy.target = "_blank"; buy.rel = "noopener";
-    buy.textContent = T("shop.buy","Buy now");
+    buy.textContent = T("shop.order","Order now");
+    buy.classList.remove("wa");
     note.textContent = T("shop.secure","Secure checkout by Stripe · free delivery in Singapore");
   } else {
-    buy.href = waLink(`Hi A&G Academy — I'd like to reserve the ${label} at S$${sgd(v.price)}.`);
+    buy.href = waLink(`Hi A&G Academy — I'd like to order the ${label} at S$${sgd(v.price)}.`);
     buy.target = "_blank"; buy.rel = "noopener";
     buy.textContent = T("shop.reserve","Reserve on WhatsApp");
+    buy.classList.add("wa");
     note.textContent = T("shop.pending","Card checkout for this model is being set up — reserve it and we'll send a payment link.");
   }
-  const ask = card.querySelector(".ask");
+
+  /* ASK FIRST — always a WhatsApp message, pre-filled with the exact model */
   ask.textContent = T("shop.ask","Ask first");
-  ask.href = waLink(`Hi A&G Academy — a question about the ${label}, please.`);
+  ask.href = waLink(`Hi A&G Academy — a question about the ${label} (S$${sgd(v.price)}), please.`);
+  ask.target = "_blank"; ask.rel = "noopener";
 }
 
 function buildShop(host){

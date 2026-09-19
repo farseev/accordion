@@ -413,3 +413,10 @@ body.stage .h-trio::before,body.tango .h-trio::before{
 .lx[hidden]{display:none!important}
 .arthead .lx>h1{margin-bottom:.4em}
 .artdate{display:none}
+
+/* shop actions: Order (primary, Stripe) + Ask first (WhatsApp) */
+.buyrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.buyrow .btn{width:100%;padding:14px 10px}
+.buyrow .buy.wa{background:#25806b;border-color:#25806b;color:#fff}
+.buyrow .buy.wa:hover{background:#1f6b59;border-color:#1f6b59}
+@media(max-width:640px){.buyrow{grid-template-columns:1fr}}
