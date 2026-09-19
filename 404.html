@@ -14,11 +14,12 @@ gtag('event','page_not_found',{page_location:location.href,page_referrer:documen
 <script>
 /* /shop-piano/ , /shop-piano , /SHOP-PIANO.HTML -> shop-piano.html */
 (function(){
-  var p = location.pathname.replace(/\/+$/,"").split("/").pop().toLowerCase();
-  if(p && p !== "404.html"){
-    var f = p.endsWith(".html") ? p : p + ".html";
-    if(f !== location.pathname.split("/").pop()) location.replace(f + location.search);
-  }
+  var parts = location.pathname.replace(/\/+$/,"").split("/");
+  var last  = parts.pop().toLowerCase();
+  if(!last || last === "404.html") return;
+  var file   = /\.html?$/.test(last) ? last.replace(/\.htm$/,".html") : last + ".html";
+  var target = parts.join("/") + "/" + file;      // sibling of the folder, not inside it
+  if(target !== location.pathname) location.replace(target + location.search + location.hash);
 })();
 </script>
 </head>
