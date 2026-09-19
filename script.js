@@ -250,9 +250,10 @@ document.addEventListener("DOMContentLoaded",()=>{
   const segs=document.querySelectorAll("#cats,.seg.cats"); if(!segs.length) return;
   const q=new URLSearchParams(location.search).get("c");
   segs.forEach(seg=>{
-    const posts=seg.parentNode.querySelector("#posts,.posts");
-    const apply=(c)=>{ if(!posts) return;
-      posts.querySelectorAll(".post").forEach(p=>{p.style.display=(c==="all"||p.dataset.cat===c)?"":"none";}); };
+    /* one .posts grid per language block, so filter them all */
+    const posts=seg.parentNode.querySelectorAll("#posts,.posts");
+    const apply=(c)=>{ if(!posts.length) return;
+      posts.forEach(g=>g.querySelectorAll(".post").forEach(p=>{p.style.display=(c==="all"||p.dataset.cat===c)?"":"none";})); };
     seg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
       seg.querySelectorAll("button").forEach(x=>x.classList.remove("on"));
       b.classList.add("on"); apply(b.dataset.cat);

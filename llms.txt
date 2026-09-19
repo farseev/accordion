@@ -1,31 +1,32 @@
 # accordion.sg — Accordion Singapore / A&G Academy
 
-> Singapore's accordion community and music school. A&G Academy is accordionist **Aleksandr Farseev** (accordion and bayan; founder of the Accordion Singapore community) and **Guennadi Mouzyka** (double bass; Principal Bass of the Singapore Symphony Orchestra since 1992, Artist Faculty at the Yong Siew Toh Conservatory). With pianist **Ksenia** they also perform as **Trio de Tango**. The academy performs at events, teaches accordion, bayan and double bass, sells piano accordions in Singapore, and publishes a free library of 743 accordion and bayan scores.
+> Singapore's accordion community and music school. A&G Academy is accordionist **Aleks Farseev** (accordion and bayan; founder of the Accordion Singapore community) and **Guennadi Mouzyka** (double bass; Principal Bass of the Singapore Symphony Orchestra since 1992, Artist Faculty at the Yong Siew Toh Conservatory). With pianist **Kseniia Vokhmianina** they also perform as **Trio de Tango**. The academy performs at events, teaches accordion, bayan, double bass and piano, sells piano accordions in Singapore, and publishes a free library of 743 accordion and bayan scores.
 
 Location: Singapore. Currency: SGD. Contact: hello@accordion.sg and WhatsApp via the site.
-Languages: every page carries all seven in one file — English, Русский, 中文, 日本語, 한국어, Bahasa Melayu, தமிழ். Append `?lang=ru|zh|ja|ko|ms|ta` to any URL.
+Languages: every page carries all twelve in one file — English, Español, Français, Deutsch, Italiano, Português, Русский, 中文, 日本語, 한국어, Bahasa Melayu, தமிழ். Append `?lang=es|fr|de|it|pt|ru|zh|ja|ko|ms|ta` to any URL. All 50 journal articles are translated into every one of them.
 Licence: content may be quoted and cited with attribution to accordion.sg.
 
 ## Key facts
 - Founded out of the Accordion Singapore community and the Singapore Symphony Orchestra.
 - 500+ performances since 1990; 100+ students taught.
+- Lessons: accordion and bayan (Aleks), double bass and chamber coaching (Guennadi), piano (Kseniia), plus small-group ensemble coaching.
 - 14 accordions in stock (12 piano, 2 orchestra), S$1,556–S$4,677, delivered and set up in Singapore.
 - 743 free scores, 229 composers, 16 genres, graded Grade 1 to Virtuoso.
 - Performs Russian folk, French musette, Argentine tango and classical repertoire.
 
 ## Pages
-- [accordion.sg — Accordion & Double Bass in Singapore | A&G Academy](https://www.accordion.sg/index.html): A&G Academy: accordionist Aleksandr Farseev and SSO Principal Bass Guennadi Mouzyka. Live performance, accordion and double bass lessons, instruments for sale in Singapore.
-- [A&G Academy — Aleksandr Farseev & Guennadi Mouzyka](https://www.accordion.sg/about.html): A&G Academy is accordionist Aleksandr Farseev, founder of Accordion Singapore, and Guennadi Mouzyka, Principal Bass of the Singapore Symphony Orchestra and YST Artist Faculty.
-- [Trio de Tango — Aleksandr, Guennadi & Ksenia | accordion.sg](https://www.accordion.sg/trio.html): Trio de Tango: accordion, double bass and strings playing Piazzolla, Gardel and classic tango in Singapore. Watch the Crossing Borders set and enquire on WhatsApp.
+- [accordion.sg — Accordion & Double Bass in Singapore | A&G Academy](https://www.accordion.sg/index.html): A&G Academy: accordionist Aleks Farseev and SSO Principal Bass Guennadi Mouzyka. Live performance, accordion and double bass lessons, instruments for sale in Singapore.
+- [A&G Academy — Aleks Farseev & Guennadi Mouzyka](https://www.accordion.sg/about.html): A&G Academy is accordionist Aleks Farseev, founder of Accordion Singapore, and Guennadi Mouzyka, Principal Bass of the Singapore Symphony Orchestra and YST Artist Faculty.
+- [Trio de Tango — Aleks, Guennadi & Kseniia | accordion.sg](https://www.accordion.sg/trio.html): Trio de Tango: accordion, double bass and piano playing Piazzolla, Gardel and classic tango in Singapore. Watch the Crossing Borders set and enquire on WhatsApp.
 - [Buy a Piano Accordion in Singapore | accordion.sg](https://www.accordion.sg/shop-piano.html): Fourteen accordions in stock in Singapore, S$1,556 to S$4,677. Choose your bass side on the card, see the price update, and check out by card or reserve on WhatsApp.
-- [Accordion & Double Bass Lessons in Singapore | A&G Academy](https://www.accordion.sg/lessons.html): Accordion and bayan lessons with Aleksandr Farseev, double bass and chamber coaching with SSO Principal Bass Guennadi Mouzyka. Beginners to conservatory auditions.
+- [Accordion & Double Bass Lessons in Singapore | A&G Academy](https://www.accordion.sg/lessons.html): Accordion and bayan lessons with Aleks Farseev, double bass and chamber coaching with SSO Principal Bass Guennadi Mouzyka. Beginners to conservatory auditions.
 - [Accordion Score Library — 740+ Free Scores | accordion.sg](https://www.accordion.sg/library.html): A free, graded, multilingual library of 743 accordion and bayan scores, Grade 1 to Virtuoso, searchable by composer, genre, difficulty and ensemble.
 - [Journal](https://www.accordion.sg/blog.html): 50 articles on tango, music theory, the accordion and the double bass.
 
 ## The people
-- **Aleksandr Farseev** — accordion, bayan. Born and trained in Russia; founder of Accordion Singapore; repeat international competition prize-winner; built the free Score Library.
+- **Aleks Farseev** — accordion, bayan. Born and trained in Russia; founder of Accordion Singapore; repeat international competition prize-winner; built the free Score Library.
 - **Guennadi Mouzyka** — double bass. Tchaikovsky Moscow State Conservatoire (honours); Moscow Philharmonic sub-principal; Principal Bass of the Singapore Symphony Orchestra since 1992; Artist Faculty, Yong Siew Toh Conservatory; Singapore premieres of Anne LeBaron's *Inner Voice* and Tan Chan Boon's *Natural*.
-- **Ksenia** — piano. Joins the pair for the Trio de Tango programme.
+- **Kseniia Vokhmianina** — piano. Prize-winning concert pianist; trained at the Royal College of Music and the Zurich University of the Arts; Music Faculty at the School of the Arts, Singapore; teaches piano at A&G Academy and joins the pair for the Trio de Tango programme.
 
 ## Instruments for sale (SGD, in Singapore)
 - Accordions Singapore 26 / 48–60 / 2 / B

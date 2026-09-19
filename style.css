@@ -420,3 +420,12 @@ body.stage .h-trio::before,body.tango .h-trio::before{
 .buyrow .buy.wa{background:#25806b;border-color:#25806b;color:#fff}
 .buyrow .buy.wa:hover{background:#1f6b59;border-color:#1f6b59}
 @media(max-width:640px){.buyrow{grid-template-columns:1fr}}
+
+/* lessons: one card per teacher, each with its own WhatsApp CTA */
+.lessongrid{gap:22px}
+.card.lesson{padding:0;display:flex;flex-direction:column;overflow:hidden}
+.card.lesson .tutor{width:100%;height:230px;object-fit:cover;object-position:center 28%}
+.card.lesson .lbody{padding:24px;display:flex;flex-direction:column;flex:1}
+.card.lesson .lbody p:not(.by){flex:1}
+.card.lesson .btn{align-self:flex-start;margin-top:6px}
+@media(max-width:640px){.card.lesson .tutor{height:180px}.card.lesson .btn{align-self:stretch;text-align:center;justify-content:center}}

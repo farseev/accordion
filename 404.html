@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found — accordion.sg</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MDTZJXNQ59"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-MDTZJXNQ59');
+gtag('event','page_not_found',{page_location:location.href,page_referrer:document.referrer});</script>
+<script>
+/* /shop-piano/ , /shop-piano , /SHOP-PIANO.HTML -> shop-piano.html */
+(function(){
+  var p = location.pathname.replace(/\/+$/,"").split("/").pop().toLowerCase();
+  if(p && p !== "404.html"){
+    var f = p.endsWith(".html") ? p : p + ".html";
+    if(f !== location.pathname.split("/").pop()) location.replace(f + location.search);
+  }
+})();
+</script>
+</head>
+<body>
+<header class="nav"><div class="inner">
+  <a class="wordmark" href="index.html">accordion<i>.sg</i></a>
+</div></header>
+<main id="main"><section class="sec"><div class="wrap" style="max-width:60ch">
+  <p class="eyebrow peri">404</p>
+  <h1>That page isn't here.</h1>
+  <p class="lead">It may have moved when the site was rebuilt. Everything is one click away:</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+    <a class="btn prim" href="index.html">Home</a>
+    <a class="btn" href="shop-piano.html">Shop accordions</a>
+    <a class="btn" href="lessons.html">Lessons</a>
+    <a class="btn" href="library.html">Score Library</a>
+    <a class="btn" href="blog.html">Journal</a>
+  </div>
+</div></section></main>
+</body></html>

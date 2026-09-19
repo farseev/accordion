@@ -1,7 +1,6 @@
 # accordion.sg — Accordion Singapore / A&G Academy
 User-agent: *
 Allow: /
-Disallow: /accordion_pdfs/README.txt
 
 # Search engines
 User-agent: Googlebot
