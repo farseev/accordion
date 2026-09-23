@@ -429,3 +429,31 @@ body.stage .h-trio::before,body.tango .h-trio::before{
 .card.lesson .lbody p:not(.by){flex:1}
 .card.lesson .btn{align-self:flex-start;margin-top:6px}
 @media(max-width:640px){.card.lesson .tutor{height:180px}.card.lesson .btn{align-self:stretch;text-align:center;justify-content:center}}
+
+/* ===================== trio page: balanced two-column set ===================== */
+/* The left column used to end at three thumbnails while the right ran on with
+   three biographies, leaving a tall gap. The gallery now leads with one wide
+   still, and the booking CTA spans the full width underneath both columns. */
+.stills.big{grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.stills.big img{aspect-ratio:3/2}
+.stills.big img:first-child{grid-column:1 / -1;aspect-ratio:4/3}  /* trio-1 is 1200x900 — no crop */
+.prog li{align-items:flex-start;padding:20px 0;gap:18px}
+.prog li .tmini{width:92px;height:116px;margin-top:3px}
+.prog li strong{margin-bottom:6px;font-size:1.05rem}
+
+.bookband{display:flex;align-items:center;gap:32px;flex-wrap:wrap;margin-top:44px;
+  border:1px solid var(--hair-d);background:rgba(255,255,255,.03);padding:28px 32px}
+body.tango .bookband{border-color:rgba(224,82,95,.34);background:rgba(224,82,95,.07)}
+.bookband .bbtext{flex:1 1 420px;min-width:0}
+.bookband .bbh{margin:0 0 8px;color:#fff;font-family:var(--display)}
+.bookband .bbp{margin:0;font-size:.95rem}
+.bookband .bbcta{flex:0 0 auto;white-space:nowrap}
+@media(max-width:860px){
+  .bookband{padding:24px;gap:20px}
+  .bookband .bbcta{width:100%;text-align:center}
+}
+@media(max-width:700px){
+  .stills.big{gap:10px}
+  .prog li .tmini{width:66px;height:84px}
+  .prog li{gap:14px;padding:16px 0}
+}
