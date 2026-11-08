@@ -59,6 +59,7 @@ Sitemap: https://accordion.sg/sitemap-it.xml
 Sitemap: https://accordion.sg/sitemap-pt.xml
 Sitemap: https://accordion.sg/sitemap-ru.xml
 Sitemap: https://accordion.sg/sitemap-zh-hans.xml
+Sitemap: https://accordion.sg/sitemap-zh-hant.xml
 Sitemap: https://accordion.sg/sitemap-ja.xml
 Sitemap: https://accordion.sg/sitemap-ko.xml
 Sitemap: https://accordion.sg/sitemap-ms.xml
