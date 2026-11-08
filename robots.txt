@@ -64,6 +64,7 @@ Sitemap: https://accordion.sg/sitemap-ja.xml
 Sitemap: https://accordion.sg/sitemap-ko.xml
 Sitemap: https://accordion.sg/sitemap-th.xml
 Sitemap: https://accordion.sg/sitemap-vi.xml
+Sitemap: https://accordion.sg/sitemap-id.xml
 Sitemap: https://accordion.sg/sitemap-ms.xml
 Sitemap: https://accordion.sg/sitemap-ta.xml
 Host: https://www.accordion.sg
