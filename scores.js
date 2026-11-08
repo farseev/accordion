@@ -260,6 +260,7 @@ function downloadScore(s,btn){
   if(!s||!s.available)return;
   var name=(s.file||'score.pdf').split('/').pop();
   if(btn)btn.classList.add('busy');
+  try{ if(window.gtag) gtag('event','score_download',{score_title:s.title_ru, composer:s.composer, grade:s.grade, genre:s.genre, file_name:name}); }catch(e){}
   function done(){if(btn)btn.classList.remove('busy');}
   fetch(s.download,{mode:'cors'}).then(function(r){if(!r.ok)throw 0;return r.blob();}).then(function(b){
     var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download=name;
@@ -343,6 +344,7 @@ function render(){
 /* ---------- modal ---------- */
 var modal=$('#accsg-modal'),mView=$('#accsg-mView');
 function openModal(s){
+  try{ if(window.gtag) gtag('event','score_preview',{score_title:s.title_ru, composer:s.composer, grade:s.grade}); }catch(e){}
   $('#accsg-mTitle').textContent=titleOf(s);
   $('#accsg-mOrig').textContent=(state.lang!=='ru'?s.title_ru:'');
   $('#accsg-mBy').textContent=s.composer;

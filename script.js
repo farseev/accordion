@@ -401,3 +401,62 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   window.ACCSG_setLang = function(l){ apply(l,true); };
 })();
+
+/* ------------------------------------------------------------- GA4 events
+   One listener for every call to action on the site. Events (snake_case):
+     KEY EVENTS (mark in GA4 > Admin > Events):
+       purchase            thank-you.html after a Stripe payment (see that page)
+       begin_checkout      "Order now" → Stripe checkout for a model
+       accordion_enquiry   WhatsApp about buying: "Reserve", "Ask first", "help me choose"
+       lesson_enquiry      WhatsApp to book a (trial) lesson
+       concert_enquiry     WhatsApp to book a performance / Trio de Tango / "Book us"
+       score_download      a PDF downloaded from the Score Library (fired in scores.js)
+     OTHER: score_preview, score_open, score_video, whatsapp_contact, email_click,
+            social_click, cta_click (internal links to lessons / shop / trio / library)
+   Nothing here sets cookies; it only sends events through the existing gtag. */
+(function(){
+  function ev(name, p){ try{ if(window.gtag) window.gtag('event', name, p||{}); }catch(e){} }
+  window.ACCSG_track = ev;
+  var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
+  var LESSON = /lesson|trial|урок|cours|clase|lezione|aula|Unterricht|Probestunde|课|課|レッスン|레슨|kelas|வகுப்பு/i;
+  var BUY = /choose an accordion|order the|question about the|accordéon|acordeón|Akkordeon|fisarmonica|acordeão|аккордеон|手风琴|アコーディオン|아코디언|akordion|அக்கார்டியன்/i;
+  function decodeWa(h){ try{ return decodeURIComponent((h.split('text=')[1]||'').replace(/\+/g,' ')); }catch(e){ return ''; } }
+  function prodInfo(a){
+    var card = a.closest('.prod'); if(!card) return null;
+    var id = card.getAttribute('data-id'); var p = (typeof CATALOGUE!=='undefined') ? CATALOGUE.filter(function(x){return x.id===id;})[0] : null;
+    var on = card.querySelector('.opt.on'); var i = on ? +on.getAttribute('data-i') : 0;
+    var v = p && p.variants[i];
+    return { item_id: id, item_name: p ? (p.brand+' '+p.name+(p.variants.length>1?' ('+v.label+')':'')) : (card.querySelector('h3')||{}).textContent,
+             item_brand: p && p.brand, item_variant: v && v.label, price: v && v.price, item_category: card.getAttribute('data-tier') };
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if (a.id === 'accsg-mDl') return;                                     // score_download fires in scores.js
+    if (a.id === 'accsg-mOpen') { ev('score_open', {score_title: (document.getElementById('accsg-mTitle')||{}).textContent}); return; }
+    if (a.id === 'accsg-ytOpen') { ev('score_video', {score_title: (document.getElementById('accsg-mTitle')||{}).textContent}); return; }
+    var pi = prodInfo(a);
+    if (pi && a.classList.contains('buy')) {
+      if (/buy\.stripe\.com/.test(h)) {
+        try{ localStorage.setItem('accsg_last_item', JSON.stringify(pi)); }catch(_){}
+        ev('begin_checkout', {currency:'SGD', value: pi.price, items:[pi]});
+      } else ev('accordion_enquiry', {enquiry_type:'reserve', item_name: pi.item_name, value: pi.price, currency:'SGD'});
+      return;
+    }
+    if (pi && a.classList.contains('ask')) { ev('accordion_enquiry', {enquiry_type:'ask_first', item_name: pi.item_name, value: pi.price, currency:'SGD'}); return; }
+    if (/wa\.me|whatsapp/i.test(h)) {
+      var msg = decodeWa(h), t = a.getAttribute('data-wa-t') || '';
+      var loc = a.closest('header,nav') ? 'header' : (a.closest('footer') ? 'footer' : 'page');
+      if (t === 'wa.book') ev('concert_enquiry', {page: page, link_location: loc});
+      else if (t === 'wa.enquiry' && page !== 'lessons' && page !== 'shop-piano') ev('whatsapp_contact', {page: page, link_location: loc});
+      else if (page === 'lessons' || LESSON.test(msg)) ev('lesson_enquiry', {page: page, link_location: loc, instrument: /BASS|bass/.test(msg) ? 'double_bass' : (/ACCORDION|BAYAN/.test(msg) ? 'accordion' : 'any')});
+      else if (page === 'shop-piano' || BUY.test(msg)) ev('accordion_enquiry', {enquiry_type:'help_choose', page: page, link_location: loc});
+      else ev('concert_enquiry', {page: page, link_location: loc});
+      return;
+    }
+    if (/^mailto:/.test(h)) { ev('email_click', {page: page}); return; }
+    if (/youtube\.com|instagram\.com|facebook\.com/.test(h)) { ev('social_click', {network: (h.match(/(youtube|instagram|facebook)/)||[])[1], page: page}); return; }
+    var c = a.getAttribute('data-cta');
+    if (c || /(^|\/)(lessons|shop-piano|trio|library)\.html/.test(h)) ev('cta_click', {target: c || h.replace(/\.html.*$/,''), page: page});
+  }, true);
+})();

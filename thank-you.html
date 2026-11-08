@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank you for your order — accordion.sg</title>
+<meta name="robots" content="noindex,follow">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MDTZJXNQ59"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-MDTZJXNQ59');
+/* Stripe Payment Links send buyers here after payment. In each link's settings set
+   "After payment → Don't show confirmation page → Redirect to"
+   https://accordion.sg/thank-you.html?m=<model-id>&session_id={CHECKOUT_SESSION_ID}
+   This page fires the GA4 "purchase" key event once per checkout session. */
+(function(){
+  var q = new URLSearchParams(location.search);
+  var sid = q.get('session_id') || '';
+  var key = 'accsg_purchase_' + (sid || 'nosid');
+  try{ if(sessionStorage.getItem(key)) return; sessionStorage.setItem(key,'1'); }catch(e){}
+  var item = null;
+  try{ item = JSON.parse(localStorage.getItem('accsg_last_item') || 'null'); }catch(e){}
+  var m = q.get('m');
+  if(m && (!item || item.item_id !== m)) item = { item_id: m, item_name: m };
+  var p = { transaction_id: sid || ('accsg-' + Date.now()), currency: 'SGD' };
+  if(item){ p.items = [item]; if(item.price) p.value = item.price; }
+  gtag('event', 'purchase', p);
+})();</script>
+</head>
+<body>
+<header class="nav"><div class="inner">
+  <a class="wordmark" href="index.html">accordion<i>.sg</i></a>
+</div></header>
+<main id="main"><section class="sec"><div class="wrap" style="max-width:60ch">
+  <p class="eyebrow peri">Order received</p>
+  <h1>Thank you for your order.</h1>
+  <p class="lead">Stripe has emailed your receipt. We will be in touch to arrange delivery in Singapore. If you have a question in the meantime, write to hello@accordion.sg.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+    <a class="btn prim" href="lessons.html">Book a first lesson</a>
+    <a class="btn" href="library.html">Free Score Library</a>
+    <a class="btn" href="accordion-care-humidity-singapore.html">Caring for it in Singapore</a>
+  </div>
+</div></section></main>
+</body>
+</html>

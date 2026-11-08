@@ -50,5 +50,5 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://www.accordion.sg/sitemap.xml
+Sitemap: https://accordion.sg/sitemap.xml
 Host: https://www.accordion.sg
