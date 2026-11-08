@@ -8,7 +8,9 @@ works too.
 
 What is here
 ------------
-  *.html                57 pages + 404.html, all in the root
+  *.html                57 English pages + 404.html + thank-you.html, in the root
+  <lang>/*.html         the same 57 pages per language (generated, see Languages)
+  i18n/  tools/         translation memory; i18n.py (build) and check_site.py
   images/               photos, favicons, social cards, images/products/
   style.css script.js   site styles and behaviour
   scores.css scores.js scores-data.js    the 743-score library widget
@@ -21,9 +23,9 @@ GitHub Pages, so old indexed links keep resolving either way.
 
 Links and hosting
 -----------------
-Every URL inside the HTML is relative — navigation, images, CSS and JS, the
-canonical tag, the hreflang alternates, the og:image social card and the
-schema.org data. The site therefore renders correctly from any host, from any
+Navigation, images, CSS and JS are relative URLs; the canonical tag, the
+hreflang alternates, the og:image social card and the schema.org data are
+absolute (https://accordion.sg/...). The site therefore renders correctly from any host, from any
 sub-folder, and from a file:// path, with nothing to configure.
 
 Two files must carry the domain, because their specs require absolute URLs:
@@ -48,9 +50,41 @@ accordion_pdfs/ next to index.html, using the filenames in scores-data.js.
 
 Languages
 ---------
-Twelve, all inside each HTML file: en, es, fr, de, it, pt, ru, zh, ja, ko, ms, ta.
-Add ?lang=xx to any URL to force one; the header picker remembers the choice.
-All 50 journal articles are translated into all twelve.
+English pages live in the root and are the source. Every other language is a
+real static page with the same file name in its own folder:
+
+  /es/ /fr/ /de/ /it/ /pt/ /ru/ /zh-hans/ /ja/ /ko/ /ms/ /ta/        live (all 57 pages)
+  /zh-hant/ /th/ /vi/ /id/ /hi/ /fil/ /ar/                           appear as soon as
+                                                                    they are translated
+
+Each language page has its own <html lang> (dir="rtl" for Arabic), a
+self-canonical, the full hreflang cluster + x-default, translated title,
+description, Open Graph text and JSON-LD (products, prices and people are
+never changed), and per-language sitemaps (sitemap.xml is the index). The
+header picker links the versions together and remembers the choice; it sends
+the GA4 event language_switch. Old ?lang=xx links on English URLs redirect to
+the static page (?lang=zh still means Simplified Chinese).
+
+Translations are kept in i18n/<code>.json (translation memory, one entry per
+English sentence/paragraph, keyed by a hash). The 11 languages that used to be
+embedded in every page were imported from those pages, so nothing was
+re-translated. tools/i18n.py does the rest (standard-library Python):
+
+  python3 tools/i18n.py status                 coverage per language
+  python3 tools/i18n.py todo th > th.tsv       untranslated text:  id<TAB>English
+  python3 tools/i18n.py merge th th.out.tsv    add translations (id<TAB>translation)
+  python3 tools/i18n.py build                  rebuild English + every language page
+  python3 tools/check_site.py                  must end with "0 errors"
+
+Keep the <g1>…</g1> and <x1/> placeholders in translations. A page goes live
+in a language only when its whole text is translated; until then that
+language links to the English page.
+
+After editing an English page (text inside <div class="lx" data-l="en">,
+the title/description, or the ACCSG_I18N dictionary), run build: changed
+sentences show up in `todo` for every language, and pages whose new text is
+not yet translated are kept back (build refuses to delete an existing
+language page unless you add --prune).
 
 The one file to edit
 --------------------
@@ -69,7 +103,8 @@ fires a page_not_found event carrying the bad URL.
 
 Rebuilding (optional)
 ---------------------
-Only if you want to change the source rather than the output. The generator is
-in the separate source package: build_flat.py plus body/, body-<lang>/,
-content/, content-<lang>/, i18n/ and assets/. Run `python3 build_flat.py` and it
-rewrites this folder, sitemap.xml, robots.txt and llms.txt included.
+The English pages in this folder are now the source: edit them directly and
+run `python3 tools/i18n.py build` to regenerate the language folders,
+sitemaps, robots.txt Sitemap lines and the Languages line in llms.txt. The
+old generator (build_flat.py with body-<lang>/ and content-<lang>/) is no
+longer needed; its translations are in i18n/<code>.json.

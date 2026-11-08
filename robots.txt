@@ -51,4 +51,16 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://accordion.sg/sitemap.xml
+Sitemap: https://accordion.sg/sitemap-en.xml
+Sitemap: https://accordion.sg/sitemap-es.xml
+Sitemap: https://accordion.sg/sitemap-fr.xml
+Sitemap: https://accordion.sg/sitemap-de.xml
+Sitemap: https://accordion.sg/sitemap-it.xml
+Sitemap: https://accordion.sg/sitemap-pt.xml
+Sitemap: https://accordion.sg/sitemap-ru.xml
+Sitemap: https://accordion.sg/sitemap-zh-hans.xml
+Sitemap: https://accordion.sg/sitemap-ja.xml
+Sitemap: https://accordion.sg/sitemap-ko.xml
+Sitemap: https://accordion.sg/sitemap-ms.xml
+Sitemap: https://accordion.sg/sitemap-ta.xml
 Host: https://www.accordion.sg

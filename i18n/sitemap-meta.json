@@ -1,0 +1,401 @@
+{
+ "index.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "1.0",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "accordion.sg — Accordion & Double Bass in Singapore | A&G Academy"
+ },
+ "blog.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.9",
+  "image": "https://accordion.sg/images/og-blog.jpg",
+  "image_title": "Journal — accordion.sg"
+ },
+ "about.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.8",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "A&G Academy — Aleks Farseev & Guennadi Mouzyka"
+ },
+ "lessons.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.8",
+  "image": "https://accordion.sg/images/og-lessons.jpg",
+  "image_title": "Accordion & Double Bass Lessons in Singapore | A&G Academy"
+ },
+ "library.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.8",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Accordion Score Library — 740+ Free Scores | accordion.sg"
+ },
+ "shop-piano.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.8",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "Buy a Piano Accordion in Singapore | accordion.sg"
+ },
+ "trio.html": {
+  "lastmod": "2026-09-30",
+  "changefreq": "weekly",
+  "priority": "0.8",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Trio de Tango — Aleks, Guennadi & Kseniia | accordion.sg"
+ },
+ "accordion-bass-system-stradella-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "The Stradella bass system, explained"
+ },
+ "accordion-buying-mistakes.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "Seven mistakes people make buying an accordion"
+ },
+ "accordion-care-humidity-singapore.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Keeping an accordion alive in the tropics"
+ },
+ "accordion-facts-history.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Accordion facts and history"
+ },
+ "accordion-in-classical-music.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "The accordion as a concert instrument"
+ },
+ "accordion-registers-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Accordion registers, explained"
+ },
+ "accordion-repertoire-by-grade.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Accordion repertoire, grade by grade"
+ },
+ "bandoneon-vs-accordion-in-tango.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Bandoneon vs accordion in tango"
+ },
+ "carlos-gardel-tango-cancion.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Carlos Gardel and the sung tango"
+ },
+ "circle-of-fifths-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "The circle of fifths explained"
+ },
+ "counterpoint-for-beginners.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Counterpoint for beginners"
+ },
+ "discovering-the-wrold-of-violins.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "Discovering the world of bowed string instruments"
+ },
+ "double-bass-bow-french-vs-german.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "French and German double bass bows compared"
+ },
+ "double-bass-care-humidity-singapore.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "Looking after a double bass in the tropics"
+ },
+ "double-bass-facts-history.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "A short history of the double bass"
+ },
+ "double-bass-in-jazz-vs-orchestra.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "Jazz bass and orchestral bass: the real differences"
+ },
+ "dynamics-and-articulation-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Dynamics and articulation, explained"
+ },
+ "ear-training-how-to-start.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Ear training: how to start"
+ },
+ "exploring-accordion-lessons-and-buying-options-in-singapore.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "Accordion lessons and buying options in Singapore"
+ },
+ "harmony-voice-leading-basics.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Harmony and voice leading, the basics"
+ },
+ "history-of-tango-buenos-aires.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Where tango actually came from"
+ },
+ "how-chords-are-built-triads-and-sevenths.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "How chords are built: triads and sevenths"
+ },
+ "how-does-a-double-bass-work.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-about.jpg",
+  "image_title": "How a double bass actually works"
+ },
+ "how-does-an-accordion-work.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "How an accordion actually works"
+ },
+ "how-to-choose-a-double-bass.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "How to choose a double bass"
+ },
+ "how-to-choose-an-accordion.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-shop.jpg",
+  "image_title": "How to choose an accordion"
+ },
+ "how-to-listen-to-tango.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "How to listen to tango"
+ },
+ "how-to-read-sheet-music-from-scratch.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "How to read sheet music from scratch"
+ },
+ "improvisation-basics-for-classical-players.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Improvisation basics for classical players"
+ },
+ "intervals-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Intervals explained"
+ },
+ "learning-accordion-as-an-adult.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Learning the accordion as an adult"
+ },
+ "libertango-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Libertango, explained"
+ },
+ "major-and-minor-scales-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Major and minor scales explained"
+ },
+ "modes-explained-dorian-to-locrian.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Modes explained, from Dorian to Locrian"
+ },
+ "musical-form-explained-binary-rondo-sonata.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Musical form explained: binary, rondo and sonata"
+ },
+ "ornaments-explained-trills-mordents-grace-notes.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Ornaments explained: trills, mordents and grace notes"
+ },
+ "piano-accordion-vs-button-accordion.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "Piano accordion vs button accordion"
+ },
+ "piazzolla-quintet-instrumentation.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "The Quinteto Nuevo Tango line-up"
+ },
+ "rhythm-and-subdivision-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Rhythm and subdivision explained"
+ },
+ "tango-outside-argentina.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Tango outside Argentina"
+ },
+ "tango-rhythm-explained-marcato-syncopa.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "How tango rhythm actually works"
+ },
+ "tempo-markings-and-rubato.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Tempo markings and rubato"
+ },
+ "time-signatures-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Time signatures explained"
+ },
+ "transposition-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Transposition explained"
+ },
+ "tuning-systems-and-temperament-explained.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "Tuning systems and temperament, explained"
+ },
+ "what-is-a-bayan.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-home.jpg",
+  "image_title": "What is a bayan?"
+ },
+ "what-is-a-cadence.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "What is a cadence?"
+ },
+ "what-is-a-key-signature.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-library.jpg",
+  "image_title": "What is a key signature?"
+ },
+ "what-is-nuevo-tango.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "What is nuevo tango?"
+ },
+ "who-was-astor-piazzolla.html": {
+  "lastmod": "2026-09-19",
+  "changefreq": "monthly",
+  "priority": "0.6",
+  "image": "https://accordion.sg/images/og-trio.jpg",
+  "image_title": "Who was Astor Piazzolla?"
+ }
+}

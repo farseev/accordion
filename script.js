@@ -116,10 +116,10 @@ const CATALOGUE = [
 
 
 /* ------------------------------------------------------------------ helpers */
-const IMG_BASE = "images/products/";
+const IMG_BASE = ((window.ACCSG_PAGE && window.ACCSG_PAGE.root) || "") + "images/products/";  // language pages sit in /<lang>/
 const T = (k, fb) => {
   try{
-    const L = (document.documentElement.lang||"en").split("-")[0];
+    const L = window.ACCSG_CUR || (document.documentElement.lang||"en").split("-")[0];
     const D = window.ACCSG_I18N || {};
     return (D[L] && D[L][k]) || (D.en && D.en[k]) || fb;
   }catch(e){ return fb; }
@@ -281,10 +281,15 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 /* ============================================================================
-   Language runtime — every page carries all seven languages in one file.
-   ?lang=xx on the URL wins; otherwise the last choice, then the browser's.
+   Language runtime. Every language is a real static page: English at the root,
+   the others in /<lang>/ (built by tools/i18n.py). window.ACCSG_PAGE carries the
+   page's language and the URL of this page in every other language; the header
+   picker navigates there and remembers the choice. Old ?lang=xx links on English
+   URLs are redirected by a small script in each page's <head>.
+   Pages without ACCSG_PAGE fall back to the old in-page switching.
    ========================================================================== */
 (function(){
+  var PAGE   = window.ACCSG_PAGE   || null;
   var I18N   = window.ACCSG_I18N   || {};
   var META   = window.ACCSG_META   || {title:{},desc:{}};
   var LANGS  = window.ACCSG_LANGS  || [["en","en","English"]];
@@ -298,6 +303,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   function recall(){ try{ return localStorage.getItem(KEY); }catch(e){ return null; } }
 
   function pick(){
+    if(PAGE && PAGE.lang) return PAGE.lang;
     var q = new URLSearchParams(location.search).get("lang");
     if(q && KEYS.indexOf(q)>=0) return q;
     var s = recall();
@@ -315,6 +321,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   function apply(lang, push){
     if(KEYS.indexOf(lang)<0) lang="en";
     var shown = ALIAS[lang] || lang;              // fall back to a shared block
+    window.ACCSG_CUR = lang;
 
     document.documentElement.lang = CODE[lang] || lang;
 
@@ -370,7 +377,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     var sel = document.getElementById("langsel");
     if(sel && sel.value!==lang) sel.value = lang;
 
-    store(lang);
+    if(!PAGE) store(lang);
     if(push){
       var u = new URL(location.href);
       if(lang==="en") u.searchParams.delete("lang"); else u.searchParams.set("lang",lang);
@@ -385,6 +392,20 @@ document.addEventListener("DOMContentLoaded",()=>{
     var sel = document.getElementById("langsel");
     if(sel) sel.addEventListener("change", function(){
       var v = sel.value;
+      if(PAGE && PAGE.alt && PAGE.alt[v]){            /* static language pages: go to that version */
+        store(v);
+        var dest = PAGE.alt[v], gone = false;
+        var go = function(){ if(gone) return; gone = true; location.href = dest; };
+        try{
+          if(window.gtag){
+            window.gtag("event","language_switch",{from_language:PAGE.lang,to_language:v,
+              page:(location.pathname.split("/").pop()||"index.html").replace(/\.html$/,"")||"index",
+              transport_type:"beacon",event_callback:go});
+            setTimeout(go, 700);
+          } else go();
+        }catch(e){ go(); }
+        return;
+      }
       if(RELOAD){                      /* the Score Library builds itself once */
         store(v);
         var u = new URL(location.href); u.searchParams.set("lang", v);
@@ -418,8 +439,8 @@ document.addEventListener("DOMContentLoaded",()=>{
   function ev(name, p){ try{ if(window.gtag) window.gtag('event', name, p||{}); }catch(e){} }
   window.ACCSG_track = ev;
   var page = (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/,'') || 'index';
-  var LESSON = /lesson|trial|урок|cours|clase|lezione|aula|Unterricht|Probestunde|课|課|レッスン|레슨|kelas|வகுப்பு/i;
-  var BUY = /choose an accordion|order the|question about the|accordéon|acordeón|Akkordeon|fisarmonica|acordeão|аккордеон|手风琴|アコーディオン|아코디언|akordion|அக்கார்டியன்/i;
+  var LESSON = /lesson|trial|урок|cours|clase|lezione|aula|Unterricht|Probestunde|课|課|レッスン|레슨|kelas|வகுப்பு|บทเรียน|คลาส|bài học|buổi học|pelajaran|पाठ|कक्षा|klase|aralin|leksyon|درس|دروس/i;
+  var BUY = /choose an accordion|order the|question about the|accordéon|acordeón|Akkordeon|fisarmonica|acordeão|аккордеон|手风琴|手風琴|アコーディオン|아코디언|akordion|akordeon|akordyon|அக்கார்டியன்|แอคคอร์เดียน|phong cầm|đàn accordion|अकॉर्डियन|أكورديون/i;
   function decodeWa(h){ try{ return decodeURIComponent((h.split('text=')[1]||'').replace(/\+/g,' ')); }catch(e){ return ''; } }
   function prodInfo(a){
     var card = a.closest('.prod'); if(!card) return null;

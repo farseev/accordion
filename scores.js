@@ -13,6 +13,9 @@ function accsgDecode(b64){
   return new TextDecoder('utf-8').decode(by);
 }
 var LIB=window.ACCSG_DATA;
+/* language pages live one folder down (/es/library.html): resolve relative PDF paths from the site root */
+(function(){var R=(window.ACCSG_PAGE&&window.ACCSG_PAGE.root)||'';if(!R||!LIB||!LIB.scores)return;
+  LIB.scores.forEach(function(s){if(s.download&&!/^([a-z][a-z0-9+.-]*:)?\/\//i.test(s.download)&&s.download.indexOf(R)!==0)s.download=R+s.download;});})();
 var $=function(s){return root.querySelector(s)};
 var el=function(t,c){var e=document.createElement(t);if(c)e.className=c;return e};
 var PDFBASE=(window.ACCSG_PDFBASE||'accordion_pdfs/');
